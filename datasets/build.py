@@ -118,7 +118,7 @@ def build_dataloader(args, tranforms=None):
             logger.info('using random sampler')
             train_loader = DataLoader(train_set,
                                       batch_size=args.batch_size,
-                                      shuffle=True, #tsne
+                                      shuffle=True, #tsne->False
                                       num_workers=num_workers,
                                       collate_fn=collate)
         else:

@@ -140,30 +140,53 @@ class IRRA(nn.Module):
 
     def encode_image(self, image):
         x = self.base_model.encode_image(image)
-        safl_image_feats = self.safl(x[:, 1:, :])##whether use CRFM
-        # safl_image_feats, _  = self.shared_transformer(x[:, 1:, :], 0)##don't use EFP
-        safl_image_feats, _ = self.shared_transformer(safl_image_feats, 0)## use EFP
-
+        safl_image_feats = self.safl(x[:, 1:, :])
+        safl_image_feats, _ = self.shared_transformer(safl_image_feats, 0)
         i_feats = x[:, 0, :].float()
         safl_i_feats = torch.mean(safl_image_feats, dim=1)
         i_feats = safl_i_feats + i_feats
         return i_feats
 
-        # return x[:, 0, :].float()
-        # return x.float() # for CLIP ResNet visual model
+    def encode_image_safl(self, image):
+        x = self.base_model.encode_image(image)
+        safl_image_feats = self.safl(x[:, 1:, :])
+        i_feats = x[:, 0, :].float()
+        safl_i_feats = torch.mean(safl_image_feats, dim=1)
+        i_feats = safl_i_feats + i_feats
+        return i_feats
+
+    def encode_image_efp(self, image):
+        x = self.base_model.encode_image(image)
+        safl_image_feats, _ = self.shared_transformer(x[:, 1:, :], 0)
+        i_feats = x[:, 0, :].float()
+        safl_i_feats = torch.mean(safl_image_feats, dim=1)
+        i_feats = safl_i_feats + i_feats
+        return i_feats
 
     def encode_text(self, text):
         x = self.base_model.encode_text(text)
-        safl_text_feats = self.safl(x) ## whether use CRFM
-        # safl_text_feats, _ = self.shared_transformer(x, 0) ## don't use EFP
-        safl_text_feats, _ = self.shared_transformer(safl_text_feats, 0) ## use EFP
-
+        safl_text_feats = self.safl(x)
+        safl_text_feats, _ = self.shared_transformer(safl_text_feats, 0)
         t_feats = x[torch.arange(x.shape[0]), text.argmax(dim=-1)].float()
         safl_t_feats = torch.mean(safl_text_feats, dim=1)
         t_feats = safl_t_feats + t_feats
-
         return t_feats
-        # return x[torch.arange(x.shape[0]), text.argmax(dim=-1)].float()
+
+    def encode_text_safl(self, text):
+        x = self.base_model.encode_text(text)
+        safl_text_feats = self.safl(x)
+        t_feats = x[torch.arange(x.shape[0]), text.argmax(dim=-1)].float()
+        safl_t_feats = torch.mean(safl_text_feats, dim=1)
+        t_feats = safl_t_feats + t_feats
+        return t_feats
+
+    def encode_text_efp(self, text):
+        x = self.base_model.encode_text(text)
+        safl_text_feats, _ = self.shared_transformer(x, 0)
+        t_feats = x[torch.arange(x.shape[0]), text.argmax(dim=-1)].float()
+        safl_t_feats = torch.mean(safl_text_feats, dim=1)
+        t_feats = safl_t_feats + t_feats
+        return t_feats
 
     def forward(self, batch):
         ret = dict()
