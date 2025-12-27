@@ -34,7 +34,7 @@ Organize them in `your dataset root dir` folder as follows:
 |            |-- cam_b
 |            |-- ...
 |       |-- reid_raw.json
-|[README.md](..%2Fphp%2Fphp%2FREADME.md)
+|
 |   |-- <ICFG-PEDES>/
 |       |-- imgs
 |            |-- test
