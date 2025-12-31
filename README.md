@@ -128,16 +128,17 @@ Please download the checkpoints files from [here](https://pan.baidu.com/s/1ortef
   - Files with **"ablation_crfm"** denotes only use CRFM model. Besides, you should change the encoder to model.encode_text_crfm/model.encode_image_crfm in ./utils/metrics.py.
   - Files with **"ablation_efp"** denotes only use CRFM model. Besides, you should change the encoder to model.encode_text_efp/model.encode_image_efp in ./utils/metrics.py.
   - Files with **"sdm+itc+aux_cnum9"** denotes the whole php model. Besides, you should change the encoder to model.encode_text/model.encode_image in ./utils/metrics.py
-- **Slot Number L Variants**: 
+- **Slot Number L Variants**:
+
 ![](images/s2.png)
   - Files **with** `_cnum{N}` suffix indicate experiments with `cnum=N`
   - `cnum` corresponds to the slot number `l` of Unified tokens `U` in our CRFM module
 
 - **Other experiments**:
-
   - **noisy_vis.py**--finegrain analysis of php model
   ![](images/finegrain.png)
   - **flops.py**--caculate flops of model
+  
   ![](images/flops.png)
   - **tsne.py**--analysis of the t-sne visulization of the final retrieval feature
   - **distance.py**--analysis of the t-sne visulization of php model
