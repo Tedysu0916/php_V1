@@ -5,6 +5,7 @@ Official PyTorch implementation of the paper Align What Truely Matters: Pedestra
 
 ## Updates
 - (9/28/2025) Revision V1 Code released!
+- (12/31/2025) Revision V2 Code released!
 
 
 ## Highlights
@@ -46,6 +47,30 @@ Organize them in `your dataset root dir` folder as follows:
 |       |-- data_captions.json
 ```
 
+## Training
+
+```
+#CUDA_VISIBLE_DEVICES=0 \
+#python train.py \
+#--name php \
+#--img_aug \
+#--batch_size 64 \
+#--loss_names 'sdm+itc+aux' \
+#--dataset_name 'ICFG-PEDES' \
+#--root_dir "your data path" \
+#--num_epoch 60 \
+#--num_experts 4 \
+#--topk 2 \
+#--reduction 8 \
+#--moe_layers 4 \
+#--moe_heads 8 \
+#--transformer_lr_factor 1.0 \
+#--moe_lr_factor 2.0 \
+#--aux_factor 0.5 \
+#--lr 3e-6 \
+#--cnum 9 \
+```
+
 
 ## Testing
 
@@ -85,27 +110,36 @@ Please download the checkpoints files from [here](https://pan.baidu.com/s/1ortef
 |       |-- sdm+itc+aux_cnum3
 |       |-- ...
 ```
+### SOTA Table
+![](images/c1.png)
+![](images/c2.png)
+![](images/c3.png)
+**The report php's result among three datasets are corrsponding to "./sdm+itc+aux_cnum9".**
 ### File Naming Convention
-
 - **Loss Ablation Experiments**: Each subdirectory represents different loss function combinations:
+![](images/s1.png)
+  - Files **without** `_cnum` suffix use the default setting of `cnum=9`
   - `itc+aux`: Image-Text Contrastive loss with auxiliary loss
   - `sdm+aux`: Similarity Distribution Matching loss with auxiliary loss
   - `sdm+itc+aux`: Combined SDM and ITC losses with auxiliary loss
 
+- **Model ablation**:
+![](images/s1.png)
+
 - **Slot Number L Variants**: 
-  - Files **without** `_cnum` suffix use the default setting of `cnum=9`
+![](images/s2.png)
   - Files **with** `_cnum{N}` suffix indicate experiments with `cnum=N`
   - `cnum` corresponds to the slot number `l` of Unified tokens `U` in our CRFM module
 
-[//]: # (- **Other experiments**: )
+- **Other experiments**:
 
-[//]: # (  - finegrain_analysis.py--nosiy query and clean query)
-
-[//]: # (  - flops.py--caculate flops of model)
-
-[//]: # (  - tsne.py--analysis of the t-sne visulization of the final retrieval feature)
-
-
+  - **noisy_vis.py**--finegrain analysis of php model
+  ![](images/finegrain.png)
+  - **flops.py**--caculate flops of model
+  ![](images/flops.png)
+  - **tsne.py**--analysis of the t-sne visulization of the final retrieval feature
+  - **distance.py**--analysis of the t-sne visulization of php model
+  ![](images/td_new.png)
 ### Reproducing Results
 
 To verify and reproduce our experimental results, simply modify the config file path in the testing command:
