@@ -112,9 +112,9 @@ Please download the checkpoints files from [here](https://pan.baidu.com/s/1ortef
 ```
 ### SOTA Table
 ![](images/c1.png)
-![](images/c2.png)
-![](images/c3.png)
-**The report php's result among three datasets are corrsponding to "./sdm+itc+aux_cnum9".**
+![](images/c0.png)
+
+**The report php's result among three datasets are corresponding to "./sdm+itc+aux_cnum9".**
 ### File Naming Convention
 - **Loss Ablation Experiments**: Each subdirectory represents different loss function combinations:
 ![](images/s1.png)
@@ -124,8 +124,10 @@ Please download the checkpoints files from [here](https://pan.baidu.com/s/1ortef
   - `sdm+itc+aux`: Combined SDM and ITC losses with auxiliary loss
 
 - **Model ablation**:
-![](images/s1.png)
-
+![](images/cp3.png)
+  - Files with **"ablation_crfm"** denotes only use CRFM model. Besides, you should change the encoder to model.encode_text_crfm/model.encode_image_crfm in ./utils/metrics.py.
+  - Files with **"ablation_efp"** denotes only use CRFM model. Besides, you should change the encoder to model.encode_text_efp/model.encode_image_efp in ./utils/metrics.py.
+  - Files with **"sdm+itc+aux_cnum9"** denotes the whole php model. Besides, you should change the encoder to model.encode_text/model.encode_image in ./utils/metrics.py
 - **Slot Number L Variants**: 
 ![](images/s2.png)
   - Files **with** `_cnum{N}` suffix indicate experiments with `cnum=N`

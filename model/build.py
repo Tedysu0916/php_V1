@@ -147,7 +147,7 @@ class IRRA(nn.Module):
         i_feats = safl_i_feats + i_feats
         return i_feats
 
-    def encode_image_safl(self, image):
+    def encode_image_crfm(self, image):
         x = self.base_model.encode_image(image)
         safl_image_feats = self.safl(x[:, 1:, :])
         i_feats = x[:, 0, :].float()
@@ -172,7 +172,7 @@ class IRRA(nn.Module):
         t_feats = safl_t_feats + t_feats
         return t_feats
 
-    def encode_text_safl(self, text):
+    def encode_text_crfm(self, text):
         x = self.base_model.encode_text(text)
         safl_text_feats = self.safl(x)
         t_feats = x[torch.arange(x.shape[0]), text.argmax(dim=-1)].float()
