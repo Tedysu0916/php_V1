@@ -110,6 +110,14 @@ Please download the checkpoints files from [here](https://pan.baidu.com/s/1ortef
 |       |-- sdm+itc+aux_cnum3
 |       |-- ...
 ```
+
+To verify and reproduce our experimental results, simply modify the config file path in the testing command:
+```
+CUDA_VISIBLE_DEVICES=0 \
+python test.py \
+--config_file 'xxxx.yaml'
+```
+
 ### SOTA Table
 ![](images/c1.png)
 ![](images/c0.png)
@@ -125,31 +133,24 @@ Please download the checkpoints files from [here](https://pan.baidu.com/s/1ortef
 
 - **Model ablation**:
 ![](images/cp3.png)
+  - Files with **"ablation_base"** denotes only use baseline(without CRFM and EFP). Besides, you should change the encoder to model.encode_text_base/model.encode_image_base in ./utils/metrics.py.
   - Files with **"ablation_crfm"** denotes only use CRFM model. Besides, you should change the encoder to model.encode_text_crfm/model.encode_image_crfm in ./utils/metrics.py.
   - Files with **"ablation_efp"** denotes only use CRFM model. Besides, you should change the encoder to model.encode_text_efp/model.encode_image_efp in ./utils/metrics.py.
   - Files with **"sdm+itc+aux_cnum9"** denotes the whole php model. Besides, you should change the encoder to model.encode_text/model.encode_image in ./utils/metrics.py
-- **Slot Number L Variants**: 
+- **Slot Number L Variants**:
+
 ![](images/s2.png)
   - Files **with** `_cnum{N}` suffix indicate experiments with `cnum=N`
   - `cnum` corresponds to the slot number `l` of Unified tokens `U` in our CRFM module
 
 - **Other experiments**:
-
   - **noisy_vis.py**--finegrain analysis of php model
   ![](images/finegrain.png)
   - **flops.py**--caculate flops of model
+  
   ![](images/flops.png)
-  - **tsne.py**--analysis of the t-sne visulization of the final retrieval feature
-  - **distance.py**--analysis of the t-sne visulization of php model
-  ![](images/td_new.png)
 ### Reproducing Results
 
-To verify and reproduce our experimental results, simply modify the config file path in the testing command:
-```
-CUDA_VISIBLE_DEVICES=0 \
-python test.py \
---config_file 'xxxx.yaml'
-```
 ## Acknowledgments
 Some components of this code implementation are adopted from [CLIP](https://github.com/openai/CLIP), [IRRA](https://github.com/anosorae/IRRA), [DM-Adapter](https://github.com/Liu-Yating/DM-Adapter). We sincerely appreciate for their contributions.
 
