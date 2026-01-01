@@ -110,6 +110,14 @@ Please download the checkpoints files from [here](https://pan.baidu.com/s/1ortef
 |       |-- sdm+itc+aux_cnum3
 |       |-- ...
 ```
+
+To verify and reproduce our experimental results, simply modify the config file path in the testing command:
+```
+CUDA_VISIBLE_DEVICES=0 \
+python test.py \
+--config_file 'xxxx.yaml'
+```
+
 ### SOTA Table
 ![](images/c1.png)
 ![](images/c0.png)
@@ -141,17 +149,8 @@ Please download the checkpoints files from [here](https://pan.baidu.com/s/1ortef
   - **flops.py**--caculate flops of model
   
   ![](images/flops.png)
-  - **tsne.py**--analysis of the t-sne visulization of the final retrieval feature
-  - **distance.py**--analysis of the t-sne visulization of php model
-  ![](images/td_new.png)
 ### Reproducing Results
 
-To verify and reproduce our experimental results, simply modify the config file path in the testing command:
-```
-CUDA_VISIBLE_DEVICES=0 \
-python test.py \
---config_file 'xxxx.yaml'
-```
 ## Acknowledgments
 Some components of this code implementation are adopted from [CLIP](https://github.com/openai/CLIP), [IRRA](https://github.com/anosorae/IRRA), [DM-Adapter](https://github.com/Liu-Yating/DM-Adapter). We sincerely appreciate for their contributions.
 
