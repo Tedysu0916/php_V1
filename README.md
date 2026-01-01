@@ -125,6 +125,7 @@ Please download the checkpoints files from [here](https://pan.baidu.com/s/1ortef
 
 - **Model ablation**:
 ![](images/cp3.png)
+  - Files with **"ablation_base"** denotes only use baseline(without CRFM and EFP). Besides, you should change the encoder to model.encode_text_base/model.encode_image_base in ./utils/metrics.py.
   - Files with **"ablation_crfm"** denotes only use CRFM model. Besides, you should change the encoder to model.encode_text_crfm/model.encode_image_crfm in ./utils/metrics.py.
   - Files with **"ablation_efp"** denotes only use CRFM model. Besides, you should change the encoder to model.encode_text_efp/model.encode_image_efp in ./utils/metrics.py.
   - Files with **"sdm+itc+aux_cnum9"** denotes the whole php model. Besides, you should change the encoder to model.encode_text/model.encode_image in ./utils/metrics.py
