@@ -110,7 +110,7 @@ Please download the checkpoints files from [here](https://pan.baidu.com/s/1ortef
 |       |-- sdm+itc+aux_cnum3
 |       |-- ...
 ```
-
+### Reproducing Results
 To verify and reproduce our experimental results, simply modify the config file path in the testing command:
 ```
 CUDA_VISIBLE_DEVICES=0 \
@@ -149,7 +149,7 @@ python test.py \
   - **flops.py**--caculate flops of model
   
   ![](images/flops.png)
-### Reproducing Results
+
 
 ## Acknowledgments
 Some components of this code implementation are adopted from [CLIP](https://github.com/openai/CLIP), [IRRA](https://github.com/anosorae/IRRA), [DM-Adapter](https://github.com/Liu-Yating/DM-Adapter). We sincerely appreciate for their contributions.
