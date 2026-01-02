@@ -122,7 +122,7 @@ python test.py \
 ![](images/c1.png)
 ![](images/c0.png)
 
-**The report php's result among three datasets are corresponding to "./sdm+itc+aux_cnum9".**
+**The above report php's result among three datasets are corresponding to "./sdm+itc+aux_cnum9".**
 ### File Naming Convention
 - **Loss Ablation Experiments**: Each subdirectory represents different loss function combinations:
 ![](images/s1.png)
@@ -145,11 +145,7 @@ python test.py \
 
 - **Other experiments**:
   - **noisy_vis.py**--finegrain analysis of php model
-  ![](images/finegrain.png)
   - **flops.py**--caculate flops of model
-  
-  ![](images/flops.png)
-
 
 ## Acknowledgments
 Some components of this code implementation are adopted from [CLIP](https://github.com/openai/CLIP), [IRRA](https://github.com/anosorae/IRRA), [DM-Adapter](https://github.com/Liu-Yating/DM-Adapter). We sincerely appreciate for their contributions.
