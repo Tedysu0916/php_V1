@@ -125,7 +125,6 @@ def run_robustness_comparison(model, gfeats, gids, img_paths, output_base_dir, d
     if not op.exists(output_base_dir):
         os.makedirs(output_base_dir)
 
-    # 定义两组baseline及其变种
     test_cases = [
         {
             "name": "sample",
@@ -138,17 +137,6 @@ def run_robustness_comparison(model, gfeats, gids, img_paths, output_base_dir, d
                 # "Word Shuffle": "Carrying a plant and looking down, the woman is dressed in dark shoes and a light-colored dress."
             }
         },
-        # {
-        #     "name": "woman_with_purse",
-        #     "baseline": "The woman is wearing knee-length blue shorts and a green and grey striped shirt. She is holding a white purse in her left hand.",
-        #     "variants": {
-        #         "Synonym": "The lady is dressed in knee-length blue shorts and a green and grey striped top. She is grasping a white handbag in her left hand.",
-        #         "Attr Emphasis": "A woman holding a white purse in her left hand is wearing knee-length blue shorts and a green and grey striped shirt.",
-        #         "Color Var": "The woman is wearing knee-length navy shorts and a green and silver striped shirt. She is holding an ivory purse in her left hand.",
-        #         # "Partial": "A woman in blue shorts and a green-grey striped shirt holding a white purse.",
-        #         # "Word Shuffle": "Holding a white purse in her left hand, the woman is dressed in a green and grey striped shirt with knee-length blue shorts."
-        #     }
-        # }
     ]
 
     import pandas as pd
@@ -248,7 +236,7 @@ def run_robustness_comparison(model, gfeats, gids, img_paths, output_base_dir, d
 
 
 if __name__ == "__main__":
-    config_file = 'logs/ICFG-PEDES/sdm+itc+aux_cnum3/configs.yaml'
+    config_file = 'xxxx'
     args = load_train_configs(config_file)
     args.batch_size = 512
     args.training = False
