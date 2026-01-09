@@ -144,6 +144,8 @@ python test.py \
   - `cnum` corresponds to the slot number `l` of Unified tokens `U` in our CRFM module
 
 - **Other experiments**:
+  - **heatmap.py**--heatmap visualization of mixture-of-experts.
+  - ![](images/s2.png)
   - **noisy_vis.py**--finegrain analysis of php model
   - **flops.py**--caculate flops of model
 
