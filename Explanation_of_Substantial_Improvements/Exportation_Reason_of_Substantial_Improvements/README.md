@@ -65,11 +65,12 @@ You can download the checkpoints files which we reproduced from [Here](https://p
 ```
 ## Testing
 ```
-sh run.sh
+sh run.sh (for Share-Parameter PHP)
+sh run_noshare.sh (for no Share-Parameter PHP)
 ```
-PS: The model is under no share-parameter. If you want to test the share-parameter result with(./logs/XXX/sdm+itc+aux_cnum9), please replace the ./model/build.py with ./model/build_ori.py
 
 Then you can get the results in the Table below.
+
 ![](images/figure1.png)
 
 ## Training
@@ -94,12 +95,6 @@ python train.py \
 --aux_factor 0.5 \
 --lr 3e-6 \
 --cnum 9 \
-```
-
-## Testing
-
-```python
-python test.py --config_file 'path/to/model_dir/configs.yaml'
 ```
 
 ## Contact
