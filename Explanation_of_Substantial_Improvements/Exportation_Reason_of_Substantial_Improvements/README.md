@@ -54,7 +54,6 @@ You can download the checkpoints files which we reproduced from [Here](https://p
 |           |--test_log.txt
 |           |--train_log.txt
 |       |-- sdm+itc+aux_cnum9
-|       |-- Expert1-topk1
 |
 |   |-- <RSTPReid>/
 |       |-- 20260111_222738_php_ns
@@ -68,11 +67,7 @@ You can download the checkpoints files which we reproduced from [Here](https://p
 ```
 sh run.sh
 ```
-PS: 
-
-1) The model is under no share-parameter. If you want to test the share-parameter result with(./logs/XXX/sdm+itc+aux_cnum9), please replace the ./model/build.py with ./model/build_ori.py
-
-2) Expert1-topk1 corrsponding that num_experts=1 and Topk=1, which means almost removed MoE from EFP module.
+PS: The model is under no share-parameter. If you want to test the share-parameter result with(./logs/XXX/sdm+itc+aux_cnum9), please replace the ./model/build.py with ./model/build_ori.py
 
 Then you can get the results in the Table below.
 ![](images/figure1.png)
