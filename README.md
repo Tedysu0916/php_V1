@@ -10,7 +10,7 @@ Official PyTorch implementation of the paper Align What Truely Matters: Pedestra
 
 ## Highlights
 In this paper, we propose a Pedestrian-relevant Hierarchical Parsing (PHP) module to extract well-aligned fine-grained visual and textual features for alignment. First, we design a Coarse Relevant Feature Mapping (CRFM) module, which uses learnable unified tokens to project both modalities into a shared low-dimensional space, enabling coarse-level semantic filtering. Then, we design an Expert-driven Feature Parsing (EFP) module that integrates the representational power of mixture of experts with a modality-aware gating mechanism to uncover deep semantic associations between text and image features. Both the CRFM and EFP modules share parameters across the two branches, which facilitates the acquisition of cross-modal semantically aligned information.
-![](images/over1.png)
+![](images/overview_new.png)
 
 
 ## Usage
