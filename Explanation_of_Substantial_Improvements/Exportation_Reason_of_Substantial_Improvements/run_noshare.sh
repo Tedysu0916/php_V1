@@ -6,7 +6,7 @@ python test_ns.py \
 
 ##Trainging
 #CUDA_VISIBLE_DEVICES=3 \
-#python train.py \
+#python train_ns.py \
 #--name php \
 #--img_aug \
 #--batch_size 64 \
