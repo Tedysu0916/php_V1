@@ -50,7 +50,7 @@ Please download the checkpoints files from [Here](https://pan.baidu.com/s/1siKkG
 ## Testing
 
 ```python
-sh run.sh
+sh run_irra.sh
 ```
 
 
