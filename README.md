@@ -4,9 +4,10 @@
 Official PyTorch implementation of the paper Align What Truely Matters: Pedestrain-relevant Hierarchical Parsing Network for Text-based Person Retrieval.
 
 ## Updates
-- (9/28/2025) Revision V1 Code released!
+- ***<ins>(1/13/2026) Check and Correction</ins>***
 - (12/31/2025) Revision V2 Code released!
-- (1/13/2025) Check and Correction
+- (9/28/2025) Revision V1 Code released!
+
 
 
 ## Highlights
