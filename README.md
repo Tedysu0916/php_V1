@@ -6,6 +6,7 @@ Official PyTorch implementation of the paper Align What Truely Matters: Pedestra
 ## Updates
 - (9/28/2025) Revision V1 Code released!
 - (12/31/2025) Revision V2 Code released!
+- ***<font color="red">(12/31/2025) Revision V2 Code released!</font>***
 - <font color="#ff0000">**(1/13/2025) Check and Correction**</font>
 
 ## Highlights
