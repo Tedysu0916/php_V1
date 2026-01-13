@@ -13,7 +13,7 @@ We carefully checked our experimental code and performed various comparative val
 | IRRA                         | IRRA      | 63.42      | 38.04   |
 | PHP                          | IRRA      | 63.42      | 38.04   |
 
-- **Evaluating Our PHP '.pth' in IRRA's Official Project.** We downloaded IRRA's [2] official code from https://github.com/anosorae/IRRA and replaced our data loading module (./datasets) and evaluation functions (./utils/metrics.py) with IRRA's implementations. The modified code is available at https://github.com/Tedysu0916/php_V1/tree/main/Check_and_Correction/Check/Our_PHP%E2%80%98.pth%E2%80%99_Evaluation_in_IRRA. Re-evaluating our PHP-trained .pth file yielded consistent results (Rank-1: 97.32%), as shown in Table 1. The ICFG-PEDES dataset statistics in the log also matched IRRA's official output.
+- **Evaluating Our PHP '.pth' in IRRA's Official Project.** We downloaded IRRA's official code from https://github.com/anosorae/IRRA and replaced our data loading module (./datasets) and evaluation functions (./utils/metrics.py) with IRRA's implementations. The modified code is available at https://github.com/Tedysu0916/php_V1/tree/main/Check_and_Correction/Check/Our_PHP%E2%80%98.pth%E2%80%99_Evaluation_in_IRRA. Re-evaluating our PHP-trained .pth file yielded consistent results (Rank-1: 97.32%), as shown in Table 1. The ICFG-PEDES dataset statistics in the log also matched IRRA's official output.
 
 - **Evaluating IRRA's '.pth' in Our PHP Project.** We downloaded IRRA's trained .pth file from https://drive.google.com/file/d/1Y3D7zZsKPpuEHWJ9nVecUW-HaKdjDI9g/view?usp=share_link, replaced our model folder with IRRA's implementation, and evaluated using IRRA's pre-trained weights. The code is available at https://github.com/Tedysu0916/php_V1/tree/main/Check_and_Correction/Check/IRRA%E2%80%98.pth%E2%80%99_Evaluation_in_Our_PHP_Project. The resulting Rank-1 accuracy of 63.42% aligns with IRRA's reported performance (Table 1), confirming the correctness of our data preparation, loading, and evaluation protocols.
 
@@ -26,11 +26,11 @@ Our PHP supports two operating modes: parameter non-shared (NS) and shared (S), 
 As shown in Table 2, we observe substantial performance improvements when PHP operates with parameter sharing (S) between text and visual branches, while the non-sharing (NS) mode yields modest or even degraded performance. Taking ICFG-PEDES as an example, the parameter sharing mode achieves 97.32% R1 and 78.12% mAP, representing improvements of 75.56% and 63.96% over the non-sharing mode (21.76% and 14.16%). This finding aligns with our original motivation and intuition. In the non-sharing setting, cross-modal alignment between textual and visual features relies on two independent branches. Although this design provides each branch with greater learning flexibility, it also makes the model more susceptible to cross-modal noise—for example, images often contain large regions of irrelevant background, while descriptions may lack specificity. Such noise introduces undesirable signals and hinders accurate fine-grained cross-modal alignment, ultimately degrading the alignment of the enhanced features and reducing overall performance. In contrast, in the sharing setting, enforcing parameter sharing between the two branches appropriately constrains this flexibility, encouraging the model to capture semantically consistent patterns across modalities. This leads to more stable and effective alignment and improves overall performance. This observation is also consistent with the classic Occam's razor principle in machine learning: do not increase model complexity unless necessary.
 
 **Figure 1: The illustration of the parameter-sharing setting switch (see the transparent blue region).**
-![](images/NS vs S.png)
+![](NS vs S.png)
 
 **Table 2: Performance (%) comparison of PHP's parameter non-shared (NS) and shared (S) modes.**
 
-| Metric | ICFG-PEDES [1] |       | CUHK-PEDES [3] |       | RSTPReid [4] |       |
+| Metric | ICFG-PEDES |       | CUHK-PEDES |       | RSTPReid |       |
 |:------:|:--------------:|:-----:|:--------------:|:-----:|:------------:|:-----:|
 |        | NS             | S     | NS             | S     | NS           | S     |
 | R1     | 21.76          | 97.32 | 50.29          | 82.80 | 38.20        | 76.70 |
@@ -38,13 +38,3 @@ As shown in Table 2, we observe substantial performance improvements when PHP op
 | mAP    | 14.16          | 78.12 | 47.79          | 75.40 | 33.16        | 63.47 |
 
 We sincerely thank all colleagues for their interest in our work and welcome any inquiries or feedback that further improve our method.
-
-## References
-
-[1] Z. Ding, C. Ding, Z. Shao, D. Tao, Semantically self-aligned network for text-to-image part-aware person re-identification, arXiv preprint arXiv:2107.12666 (2021).
-
-[2] D. Jiang, M. Ye, Cross-modal implicit relation reasoning and aligning for text-to-image person retrieval, in: IEEE Conference on Computer Vision and Pattern Recognition, 2023, pp. 2787–2797.
-
-[3] S. Li, T. Xiao, H. Li, B. Zhou, D. Yue, X. Wang, Person search with natural language description, in: IEEE Conference on Computer Vision and Pattern Recognition, 2017, pp. 1970–1979.
-
-[4] A. Zhu, Z. Wang, Y. Li, X. Wan, J. Jin, T. Wang, F. Hu, G. Hua, Dssl: Deep surrounding-person separation learning for text-based person retrieval, in: ACM International Conference on Multimedia, 2021, pp. 209–217.
