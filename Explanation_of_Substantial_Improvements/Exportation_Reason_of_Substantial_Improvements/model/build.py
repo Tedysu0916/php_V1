@@ -42,7 +42,7 @@ class SAFL(nn.Module):
         x = self.feed(x)
         return x
 
-class IRRA(nn.Module):
+class PHP(nn.Module):
     def __init__(self, args, num_classes=11003):
         super().__init__()
         self.args = args
@@ -286,7 +286,7 @@ class IRRA(nn.Module):
 
 
 def build_model(args, num_classes=11003):
-    model = IRRA(args, num_classes)
+    model = PHP(args, num_classes)
     # covert model to fp16
     convert_weights(model)
     return model

@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     args.training = False
     args.root_dir = "/media/jqzhu/哈斯提·基拉/UniMoESE/data"
-    logger = setup_logger('IRRA', save_dir=args.output_dir, if_train=args.training)
+    logger = setup_logger('PHP', save_dir=args.output_dir, if_train=args.training)
     logger.info(args)
     device = "cuda"
 

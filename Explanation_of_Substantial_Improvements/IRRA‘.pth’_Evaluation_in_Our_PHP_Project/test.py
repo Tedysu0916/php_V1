@@ -17,7 +17,7 @@ from utils.iotools import load_train_configs
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="IRRA Test")
+    parser = argparse.ArgumentParser(description="PHP Test")
     parser.add_argument("--config_file", default='logs/ICFG-PEDES/sdm+itc+aux_cnum9')
     args = parser.parse_args()
     args = load_train_configs(args.config_file)
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     args.training = False
     # args.root_dir = '/media/jqzhu/哈斯提·基拉/UniMoESE/data'
     # args.output_dir = '/media/jqzhu/哈斯提·基拉/UniMoESE/logs/ICFG-PEDES/sdm+itc+aux_cnum9'
-    logger = setup_logger('IRRA', save_dir=args.output_dir, if_train=args.training)
+    logger = setup_logger('PHP', save_dir=args.output_dir, if_train=args.training)
     logger.info(args)
     device = "cuda"
 

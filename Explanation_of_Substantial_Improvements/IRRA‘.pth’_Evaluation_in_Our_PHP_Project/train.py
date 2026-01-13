@@ -29,7 +29,7 @@ def set_seed(seed=0):
 
 
 def get_parameter(model, logger):
-    logger = logging.getLogger("IRRA.parameter")
+    logger = logging.getLogger("PHP.parameter")
     trainable = 0.0
     total = 0.0
     for name, param in model.named_parameters():
@@ -58,7 +58,7 @@ if __name__ == '__main__':
     cur_time = time.strftime("%Y%m%d_%H%M%S", time.localtime())
     args.output_dir = op.join(args.output_dir, args.dataset_name,
                               f'{args.loss_names}_ne{args.num_experts}_top{args.topk}_layer{args.moe_layers}_head{args.moe_heads}_moe{args.moe_lr_factor}_tlr{args.transformer_lr_factor}_aux{args.aux_factor}_lr{args.lr}_cnum{args.cnum}_ceshi')
-    logger = setup_logger('IRRA', save_dir=args.output_dir, if_train=args.training, distributed_rank=get_rank())
+    logger = setup_logger('PHP', save_dir=args.output_dir, if_train=args.training, distributed_rank=get_rank())
     logger.info("Using {} GPUs".format(num_gpus))
     logger.info(str(args).replace(',', '\n'))
     save_train_configs(args.output_dir, args)

@@ -15,7 +15,7 @@ class BaseDataset(object):
     """
     Base class of text to image reid dataset
     """
-    logger = logging.getLogger("IRRA.dataset")
+    logger = logging.getLogger("PHP.dataset")
 
     def show_dataset_info(self):
         num_train_pids, num_train_imgs, num_train_captions = len(

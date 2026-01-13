@@ -69,7 +69,7 @@ def collate(batch):
     return batch_tensor_dict
 
 def build_dataloader(args, tranforms=None):
-    logger = logging.getLogger("IRRA.dataset")
+    logger = logging.getLogger("PHP.dataset")
 
     num_workers = args.num_workers
     dataset = __factory[args.dataset_name](root=args.root_dir)
