@@ -25,4 +25,3 @@ python test.py \
 #--aux_factor 0.5 \
 #--lr 3e-6 \
 #--cnum 9
-##--pretrain_choice '/home/jqzhu/下载/ViT-B-32.pt' \
