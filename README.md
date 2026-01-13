@@ -6,6 +6,7 @@ Official PyTorch implementation of the paper Align What Truely Matters: Pedestra
 ## Updates
 - (9/28/2025) Revision V1 Code released!
 - (12/31/2025) Revision V2 Code released!
+- (1/13/2025) Check and Correction
 
 
 ## Highlights
@@ -175,4 +176,4 @@ Some components of this code implementation are adopted from [CLIP](https://gith
 [//]: # (```)
 
 ## Contact
-If you have any question, please feel free to contact us. E-mail: [jiajunsu@hqu.edu.cn](mailto:jiajunsu@hqu.edu.cn), [jqzhu@hqu.edu.cn](mailto:jqzhu@hqu.edu.cn).
+If you have any question, please feel free to contact us. E-mail: [jiajunsu@hqu.edu.cn](mailto:jiajunsu@hqu.edu.cn).
