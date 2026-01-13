@@ -2,7 +2,7 @@
 
 ## 1 Checking
 
-We carefully checked our experimental code and performed various comparative validations to demonstrate the reliability of our results. The whole validation results are publicly released at https://github.com/Tedysu0916/php_V1/tree/main/Check_and_Correction. The main verification process and outcomes are summarized as follows.
+We carefully checked our experimental code and performed various comparative validations to demonstrate the reliability of our results. The whole validation results are publicly released at https://github.com/Tedysu0916/php_V1/tree/main/Check_and_Correction/Check. The main verification process and outcomes are summarized as follows.
 
 **Table 1: Evaluation Using PHP and IRRA Codes on ICFG-PEDES [1].**
 
