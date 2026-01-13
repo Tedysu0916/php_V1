@@ -65,8 +65,8 @@ You can download the checkpoints files which we reproduced from [Here](https://p
 ```
 ## Testing
 ```
-sh run.sh (for Share-Parameter PHP)
-sh run_noshare.sh (for no Share-Parameter PHP)
+sh run.sh (for shared PHP)
+sh run_noshare.sh (for Non-shared PHP)
 ```
 
 Then you can get the results in the Table below.
