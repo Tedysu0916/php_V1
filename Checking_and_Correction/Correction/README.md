@@ -11,7 +11,7 @@ easydict
 ```
 
 ### Prepare Datasets
-Download the CUHK-PEDES dataset from [here](https://github.com/ShuangLI59/Person-Search-with-Natural-Language-Description), ICFG-PEDES dataset from [here](https://github.com/zifyloo/SSAN) and RSTPReid dataset form [here](https://github.com/NjtechCVLab/RSTPReid-Dataset)
+Download the CUHK-PEDES、ICFG-PEDES and RSTPReid dataset from [here](https://pan.baidu.com/s/1EtiFJBjjijhUD_mq5E1vMw?pwd=xvfy)
 
 Organize them in `your dataset root dir` folder as follows:
 ```
@@ -65,8 +65,8 @@ You can download the checkpoints files which we reproduced from [Here](https://p
 ```
 ## Testing
 ```
-sh run.sh (for Share-Parameter PHP)
-sh run_noshare.sh (for no Share-Parameter PHP)
+sh run.sh (for shared PHP)
+sh run_noshare.sh (for Non-shared PHP)
 ```
 
 Then you can get the results in the Table below.
