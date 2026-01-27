@@ -2,27 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
-# 模拟数据（基于你的 targeted_queries 结果）
-word_expert_usage = {
-    'black': np.array([1, 0, 1, 0]),
-    'red': np.array([2, 0, 2, 0]),
-    'blue': np.array([1, 0, 1, 0]),
-    'jeans': np.array([1, 0, 1, 0]),
-    'dress': np.array([2, 0, 2, 0]),
-    'jacket': np.array([0, 4, 1, 3]),
-    'coat': np.array([0, 1, 1, 0]),
-    'sneakers': np.array([1, 3, 2, 2]),
-    'backpack': np.array([0, 3, 0, 3]),
-    'man': np.array([1, 3, 2, 2]),
-    'woman': np.array([3, 1, 4, 0]),
-    'person': np.array([0, 2, 1, 1]),
-    'young': np.array([2, 0, 2, 0]),
-    'elderly': np.array([0, 4, 3, 1]),
-    'wearing': np.array([1, 3, 2, 2]),
-}
-
-num_experts = 4
-
 
 def generate_horizontal_heatmap(word_expert_usage, num_experts, save_path="heatmap_horizontal.png"):
     """横向布局的渐变分组热力图 - 适合论文"""
