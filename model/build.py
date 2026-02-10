@@ -21,7 +21,6 @@ class FeedForwardBlock(nn.Sequential):
             nn.Linear(expansion * emb_size, emb_size),
         )
 
-
 class SAFL(nn.Module):
     def __init__(self, dim=512, part_num=6) -> None:
         super().__init__()

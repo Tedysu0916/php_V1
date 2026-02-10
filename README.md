@@ -4,9 +4,7 @@
 Official PyTorch implementation of the paper Align What Truely Matters: Pedestrain-relevant Hierarchical Parsing Network for Text-based Person Retrieval.
 
 ## Updates
-- 🔴 ***<ins>[(1/13/2026) Checking and Correction](https://github.com/Tedysu0916/php_V1/tree/main/Checking_and_Correction)</ins>***
-- (12/31/2025) Revision V2 Code released!
-- (9/28/2025) Revision V1 Code released!
+- (2/10/2026) Code released!
 
 
 
@@ -14,9 +12,9 @@ Official PyTorch implementation of the paper Align What Truely Matters: Pedestra
 In this paper, we propose a Pedestrian-relevant Hierarchical Parsing (PHP) module to extract well-aligned fine-grained visual and textual features for alignment. First, we design a Coarse Relevant Feature Mapping (CRFM) module, which uses learnable unified tokens to project both modalities into a shared low-dimensional space, enabling coarse-level semantic filtering. Then, we design an Expert-driven Feature Parsing (EFP) module that integrates the representational power of mixture of experts with a modality-aware gating mechanism to uncover deep semantic associations between text and image features. Both the CRFM and EFP modules share parameters across the two branches, which facilitates the acquisition of cross-modal semantically aligned information.
 ![](images/overview_new.png)
 
-
 ## Usage
 ### Requirements
+
 we use single RTX3090 24G GPU for training and evaluation. 
 ```
 pytorch 2.1.1
@@ -26,6 +24,7 @@ easydict
 ```
 
 ### Prepare Datasets
+
 Download the CUHK-PEDES、ICFG-PEDES and RSTPReid dataset from [here](https://pan.baidu.com/s/1EtiFJBjjijhUD_mq5E1vMw?pwd=xvfy)
 
 Organize them in `your dataset root dir` folder as follows:
@@ -48,31 +47,6 @@ Organize them in `your dataset root dir` folder as follows:
 |       |-- imgs
 |       |-- data_captions.json
 ```
-
-## Training
-
-```
-CUDA_VISIBLE_DEVICES=0 \
-python train.py \
---name php \
---img_aug \
---batch_size 64 \
---loss_names 'sdm+itc+aux' \
---dataset_name 'ICFG-PEDES' \
---root_dir "your data path" \
---num_epoch 60 \
---num_experts 4 \
---topk 2 \
---reduction 8 \
---moe_layers 4 \
---moe_heads 8 \
---transformer_lr_factor 1.0 \
---moe_lr_factor 2.0 \
---aux_factor 0.5 \
---lr 3e-6 \
---cnum 9 \
-```
-
 
 ## Testing
 
@@ -139,42 +113,9 @@ python test.py \
   - Files with **"ablation_crfm"** denotes only use CRFM model. Besides, you should change the encoder to model.encode_text_crfm/model.encode_image_crfm in ./utils/metrics.py.
   - Files with **"ablation_efp"** denotes only use CRFM model. Besides, you should change the encoder to model.encode_text_efp/model.encode_image_efp in ./utils/metrics.py.
   - Files with **"sdm+itc+aux_cnum9"** denotes the whole php model. Besides, you should change the encoder to model.encode_text/model.encode_image in ./utils/metrics.py
-- **Slot Number L Variants**:
-
-![](images/s2.png)
-  - Files **with** `_cnum{N}` suffix indicate experiments with `cnum=N`
-  - `cnum` corresponds to the slot number `l` of Unified tokens `U` in our CRFM module
-
-- **Other experiments**:
-  - **heatmap.py**--heatmap visualization of mixture-of-experts.
-  - ![](images/s2.png)
-  - **noisy_vis.py**--finegrain analysis of php model
-  - **flops.py**--caculate flops of model
 
 ## Acknowledgments
 Some components of this code implementation are adopted from [CLIP](https://github.com/openai/CLIP), [IRRA](https://github.com/anosorae/IRRA), [DM-Adapter](https://github.com/Liu-Yating/DM-Adapter). We sincerely appreciate for their contributions.
-
-
-[//]: # (## Citation)
-
-[//]: # (If you find this code useful for your research, please cite our paper.)
-
-[//]: # ()
-[//]: # (```tex)
-
-[//]: # (@inproceedings{cvpr23crossmodal,)
-
-[//]: # (  title={Cross-Modal Implicit Relation Reasoning and Aligning for Text-to-Image Person Retrieval},)
-
-[//]: # (  author={Jiang, Ding and Ye, Mang},)
-
-[//]: # (  booktitle={IEEE International Conference on Computer Vision and Pattern Recognition &#40;CVPR&#41;},)
-
-[//]: # (  year={2023},)
-
-[//]: # (})
-
-[//]: # (```)
 
 ## Contact
 If you have any question, please feel free to contact us. E-mail: [jiajunsu@hqu.edu.cn](mailto:jiajunsu@hqu.edu.cn).
