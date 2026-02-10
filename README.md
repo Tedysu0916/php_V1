@@ -48,6 +48,31 @@ Organize them in `your dataset root dir` folder as follows:
 |       |-- data_captions.json
 ```
 
+<<<<<<< HEAD
+=======
+## Training
+
+```
+CUDA_VISIBLE_DEVICES=0 \
+python train.py \
+--name php \
+--img_aug \
+--batch_size 64 \
+--loss_names 'sdm+itc+aux' \
+--dataset_name 'ICFG-PEDES' \
+--root_dir "your data path" \
+--num_epoch 60 \
+--num_experts 4 \
+--topk 2 \
+--reduction 8 \
+--moe_layers 4 \
+--moe_heads 8 \
+--lr 3e-6 \
+--cnum 9 \
+```
+
+
+>>>>>>> b9e71c243a9eb00f9130d6fe230c254d92eea77f
 ## Testing
 
 ```
