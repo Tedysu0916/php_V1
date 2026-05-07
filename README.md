@@ -5,6 +5,7 @@ Official PyTorch implementation of the paper Align What Truely Matters: Pedestra
 
 ## Updates
 - (2/10/2026) Code released!
+-（8/5/2026）R1 update two experiments
 
 
 
@@ -114,6 +115,23 @@ python test.py \
   - Files with **"ablation_crfm"** denotes only use CRFM model. Besides, you should change the encoder to model.encode_text_crfm/model.encode_image_crfm in ./utils/metrics.py.
   - Files with **"ablation_efp"** denotes only use CRFM model. Besides, you should change the encoder to model.encode_text_efp/model.encode_image_efp in ./utils/metrics.py.
   - Files with **"sdm+itc+aux_cnum9"** denotes the whole php model. Besides, you should change the encoder to model.encode_text/model.encode_image in ./utils/metrics.py
+
+
+## Beta Ablation Experiment
+
+We conduct ablation experiments on the auxiliary loss weight by adjusting the `--aux_factor` parameter in [utils/options.py](utils/options.py#L81) (default: 0.5). This parameter controls the contribution of the load-balancing auxiliary loss $\mathcal{L}_{aux}$ during training. By varying `--aux_factor`, we can observe its impact on expert utilization balance and final retrieval performance. The experimental results are shown below:
+
+![](images/beta.png)
+
+## Shannon Entropy Expert Distribution Visualization
+
+To analyze the expert balancing effect of the auxiliary loss, we visualize the expert selection distribution using Shannon entropy. The workflow is as follows:
+
+1. During testing, [model/moe.py](model/moe.py#L49-L57) accumulates the number of times each expert is selected across all tokens via `expert_count_accum`.
+2. After text/image feature extraction completes, [utils/metrics.py](utils/metrics.py#L48-L74) normalizes these counts into probability distributions and computes the Shannon entropy for each MoE layer — the higher the entropy, the better the expert balance.
+3. The printed statistics are then filled into [Shannon_entropy_vis.py](Shannon_entropy_vis.py) to generate radar charts comparing expert distributions **with** vs. **without** $\mathcal{L}_{aux}$, saved as `images/entropy.png`.
+
+![](images/entropy.png)
 
 ## Acknowledgments
 Some components of this code implementation are adopted from [CLIP](https://github.com/openai/CLIP), [IRRA](https://github.com/anosorae/IRRA), [DM-Adapter](https://github.com/Liu-Yating/DM-Adapter). We sincerely appreciate for their contributions.
