@@ -23,8 +23,6 @@ if __name__ == '__main__':
     args = load_train_configs(args.config_file)
 
     args.training = False
-    # args.root_dir = '/media/jqzhu/哈斯提·基拉/UniMoESE/data'
-    # args.output_dir = '/media/jqzhu/哈斯提·基拉/UniMoESE/logs/CUHK-PEDES/sdm+itc+aux_cnum9'
     logger = setup_logger('IRRA', save_dir=args.output_dir, if_train=args.training)
     logger.info(args)
     device = "cuda"
